@@ -47,6 +47,10 @@ contract EthStake is ReentrancyGuard{
         owner = msg.sender;
     }
     
+    // @notice init should be called after contract creation
+    // @params rewardToken_ address of the reward token
+    // @params priceFeed_ address of the chainlink priceFeed
+    // @params rewardTokenAmount_ amount of rewardToken to deposit to stake contract
     function init(address rewardToken_, address priceFeed_, uint256 rewardTokenAmount_) public onlyOwner {
         if(!initialized) {
             initialized = true;
